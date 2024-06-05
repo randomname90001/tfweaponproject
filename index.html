@@ -1,10 +1,61 @@
-<hl>test</hl>
-<head>
-<meta charset= "UTF-8">
-  <title>healing debuff weird lol</title>
-  <style>body {
-	background-color: #FFFFFF;
-	margin-bottom: 1cm;
-}
-    </title>
-</head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TF2 Healing Debuff Calculator</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1>TF2 Healing Debuff Calculator</h1>
+        <br>
+        <p>Gives you the heal rate of a given source while under the healing debuff from the Pyro's <a href="https://wiki.teamfortress.com/wiki/Flame_Thrower">Flamethrower</a>.</p>
+        <input type="text" id="health-debuff">
+        <br>
+        <button type="button" id="health-button">Calculate!</button>
+        <br>
+        <p id="health-text">Heal Rate: </p>
+    </body>
+    <footer>
+
+    </footer>
+    <script>
+        "use strict";
+        const TICKS_PER_SECOND = 66;
+        const HEALING_DEBUFF = 0.8;
+
+        let inputField = document.getElementById("health-debuff");
+        let inputButton = document.getElementById("health-button");
+        let healthText = document.getElementById("health-text");
+
+        inputButton.addEventListener("click", function(e){
+            let flHealRate = Number(inputField.value);
+            let flHealFraction = 0.0;
+
+            let iHealAmount = 0;
+            let iTotalHealth = 0;
+
+            if (flHealRate == NaN)
+            {
+                return null;
+            }
+
+            flHealRate /= TICKS_PER_SECOND;
+
+            for (let i = 0; i < TICKS_PER_SECOND; i++)
+            {
+                flHealFraction += flHealRate;
+                flHealFraction *= HEALING_DEBUFF;
+
+                iHealAmount = Math.floor(flHealFraction);
+
+                if (iHealAmount > 0)
+                {
+                    flHealFraction -= iHealAmount;
+                    iTotalHealth += iHealAmount;
+                }
+            }
+
+            healthText.innerText = `Heal Rate: ${iTotalHealth} hp/s`;
+        });
+    </script>
+</html>

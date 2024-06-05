@@ -1,0 +1,64 @@
+@font-face {
+    font-family: teamfortress;
+    src: url("tf2secondary.ttf");
+}
+
+body {
+    background-color: #201f1e;
+}
+
+p {
+    font-family: teamfortress;
+    color : #FFFFFF;
+    font-size : 24px;
+    width : 40%;
+    margin : auto;
+}
+
+h1 {
+    font-family: teamfortress;
+    margin : auto;
+    width : 50%;
+    text-align : center;
+    color : #FFFFFF;
+}
+
+#health-debuff {
+    font-family: teamfortress;
+    font-size : 30px;
+    color : #FFFFFF;
+    margin : auto;
+    display: block;
+    width : 450px;
+    height : 40px;
+    background : #111010;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+#health-button {
+    font-family: teamfortress;
+    font-size : 30px;
+    color : #FFFFFF;
+    margin : auto;
+    display: block;
+    width : 196px;
+    height : 40px;
+    background : #4b4646;
+    border-radius: 4px;
+    border: none;
+}
+
+#health-button:active {
+    font-family: teamfortress;
+    font-size : 30px;
+    color : #FFFFFF;
+    margin : auto;
+    display: block;
+    width : 196px;
+    height : 40px;
+    background : #353131;
+    border-radius: 4px;
+    border: none;
+}
